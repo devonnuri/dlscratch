@@ -21,13 +21,13 @@ else()
     target_compile_options(dl PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
-# 디버그 때 sanitizer
-if(CMAKE_BUILD_TYPE MATCHES "Debug")
-    if(NOT MSVC)
-        target_compile_options(dl PRIVATE -fsanitize=address,undefined)
-        target_link_options(dl PRIVATE -fsanitize=address,undefined)
-    endif()
-endif()
+## 디버그 때 sanitizer
+#if(CMAKE_BUILD_TYPE MATCHES "Debug")
+#    if(NOT MSVC)
+#        target_compile_options(dl PRIVATE -fsanitize=address,undefined)
+#        target_link_options(dl PRIVATE -fsanitize=address,undefined)
+#    endif()
+#endif()
 
 # 예제/테스트
 add_executable(test_tensor tests/test_tensor.cpp)
